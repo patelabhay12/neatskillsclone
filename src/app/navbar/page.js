@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import LOGO from '@/assets/logo.png';
 import "@/app/styles/navbar.css";
 
@@ -8,9 +9,9 @@ const Navbar = () => {
   const [fix, setFix] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => { 
+    const handleScroll = () => {
       const scrollY = window.scrollY;
-      if (scrollY>=300) {
+      if (scrollY >= 300) {
         setFix(true);
       } else {
         setFix(false);
@@ -40,13 +41,17 @@ const Navbar = () => {
         </div>
 
         <div className="flex justify-center items-center gap-4">
-          <button className="px-4 py-2 border-2 rounded-xl border-white bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-300">SIGN UP
-          </button>
-          <button className="px-4 py-2 border-2 rounded-xl border-white text-pink-500 font-semibold hover:border-pink-600 hover:text-pink-600 transition duration-300">LOGIN
-          </button>
+          <Link href={"/signup"}>
+            <button className="px-4 py-2 border-2 rounded-xl border-white bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-300" > SIGN UP
+            </button>
+          </Link>
+          <Link href={"/login"}>
+            <button className="px-4 py-2 border-2 rounded-xl border-white text-pink-500 font-semibold hover:border-pink-600 hover:text-pink-600 transition duration-300">LOGIN
+            </button>
+          </Link>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 };
 
